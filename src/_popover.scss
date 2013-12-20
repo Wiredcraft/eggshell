@@ -1,0 +1,89 @@
+@mixin arrow($position: left, $color: #FFF, $size: 7px) {
+  &:after {
+    content: '';
+    position: absolute;
+    @if $position == top {
+      border-left: $size solid transparent;
+      border-top-color: $color;
+      border-bottom: $size solid $color;
+      border-right: $size solid transparent;
+      left: $size;
+      top: -$size;
+    }
+    @else if $position == right {
+      border-top: $size solid transparent;
+      border-right-color: $color;
+      border-left: $size solid $color;
+      border-bottom: $size solid transparent;
+      right: -$size;
+      top: $size;
+    }
+    @else if $position == bottom {
+      border-right: $size solid transparent;
+      border-bottom-color: $color;
+      border-top: $size solid $color;
+      border-left: $size solid transparent;
+      bottom: -$size;
+      left: $size;
+    }
+    @else {
+      border-bottom: $size solid transparent;
+      border-left-color: $color;
+      border-right: $size solid $color;
+      border-top: $size solid transparent;
+      left: -$size;
+      top: $size;
+    }
+  }
+}
+
+@mixin popover($position: top) {
+  position: relative;
+  span {
+    @if $position == bottom {
+      bottom: -1.5*$gutter;
+      left: 0;
+    }
+    @else if $position == right {
+      margin-left: $gutter/4;
+      left: 100%;
+      top: 0;
+    }
+    @else if $position == left {
+      margin-right: $gutter/4;
+      right: 100%;
+      top: 0;
+    }
+    @else {
+      left: 0;
+      top: -1.5*$gutter;
+    }
+    background: shade($base, 20%);
+    @include border-radius($radius);
+    @include box-shadow(rgba(0, 0, 0, 0.1) 0 2px 2px);
+    color: #FFF;
+    display: none;
+    font-size: $small;
+    line-height: 140%;
+    opacity: 0;
+    padding: $gutter/4 $gutter/2;
+    position: absolute;
+    @include text-shadow(none);
+    @include transition-duration(0.2s);
+    @include transition-property(opacity);
+    white-space: nowrap;
+    z-index: 999;
+    &:after {
+      left: $gutter;
+    }
+  }
+  &:hover {
+    span {
+      display: block;
+      opacity: 1;
+    }
+  }
+  &:before {
+    margin-right: 0;
+  }
+}
