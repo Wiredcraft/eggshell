@@ -1,0 +1,279 @@
+
+
+/* Compass */
+
+@import 'compass/css3';
+@import 'compass/css3/border-radius';
+@import 'compass/css3/filter';
+@import 'compass/css3/transition';
+@import 'compass/css3/transform';
+@import 'compass/utilities/general/clearfix';
+
+/* Colors */
+
+$blue: #0e90d2;
+$purple: rgb(128, 88, 165);
+$green: #5eb95e;
+$red: #dd514c;
+$orange: rgb(243, 123, 29);
+$yellow: rgb(250, 210, 50);
+
+$base: shade(desaturate($blue, 60%), 80%);
+$border: shade(desaturate($blue, 60%), 60%);
+
+/* Spacing */
+
+$gutter: 20px;
+$radius: 3px;
+$padding: 1.5*$gutter/2 $gutter;
+
+/* Layout */
+
+$sidebar: 240px;
+$modal: 500px;
+
+/* Typography */
+
+$font: 'Open Sans', Arial, sans-serif;
+$size: 16px;
+$line-height: 140%;
+$pico: 10px;
+$micro: 12px;
+$small: 14px;
+$large: 18px;
+$huge: 24px;
+$humongous: 36px;
+
+/* Plugins */
+
+@import 'forms.scss';
+@import 'buttons.scss';
+@import 'icons.scss';
+
+/* Dropdown menus */
+/*
+.dropdown {
+  @include dropdown();
+  a:hover {
+    text-decoration: none;
+  }
+  .options {
+    background: #FFF;
+    border: 1px solid tint(desaturate($blue, 20%), 65%);
+    @include border-radius($radius);
+    @include box-shadow(rgba(0, 0, 0, 0.2) 0 0 3px);
+    max-height: 200px;
+    overflow-y: scroll;
+    right: 0;
+    img {
+      height: $gutter;
+    }
+    span,
+    a {
+      display: block;
+      margin: $gutter/4 0;
+      padding: $gutter/4 $gutter/2;
+      white-space: nowrap;
+    }
+    a:hover {
+      background: $blue;
+      color: #FFF;
+    }
+    .separated{
+      margin-top: $gutter/2;
+      position: relative;
+      &:before {
+        content: ' ';
+        display: block;
+        border-top: 1px solid tint(desaturate($blue, 20%), 80%);
+        left: 0;
+        position: absolute;
+        top: -$gutter/4;
+        width: 100%;
+      }
+    }
+  }
+}
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* GENERAL */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #FFF;
+  color: tint($base, 20%);
+  font-family: $font;
+  font-size: $size;
+  line-height: 140%;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a {
+  cursor: pointer;
+  color: $blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $base;
+  margin: 0 0 $gutter;
+}
+
+p {
+  margin: 0 0 $gutter;
+}
+
+/* SIDEBAR */
+
+#navigation {
+  background: $base;
+  bottom: 0;
+  color: #FFF;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: $sidebar;
+  .header {
+    border-bottom: 1px solid tint($base, 5%);
+    padding: $padding;
+    h2 {
+      color: #FFF;
+      font-size: $large;
+      font-weight: normal;
+      margin: 0;
+    }
+    .controls {
+      float: right;
+      a {
+        @include popover();
+        @include icon();
+      }
+    }
+  }
+  .body {
+    a {
+      color: tint($base, 80%);
+      display: block;
+      padding: $padding;
+      &:hover {
+        background: tint($base, 10%);
+        color: #FFF;
+        text-decoration: none;
+      }
+      &.active {
+        background: $blue;
+        color: #FFF;
+      }
+    }
+  }
+}
+
+/* CONTENT */
+
+#content {
+  margin-left: $sidebar;
+  .header {
+    border-bottom: 1px solid tint($base, 80%);
+    padding: 2*$gutter;
+    padding-bottom: 0;
+    .controls {
+      float: right;
+      a {
+        @include button();
+      }
+      .bundle a {
+        @include bundle();
+      }
+    }
+  }
+  .section {
+    border-top: 1px solid tint($base, 80%);
+    padding: 2*$gutter;
+    line-height: 140%;
+    input,
+    textarea {
+      border: 0;
+      border-bottom: 3px solid tint($base, 90%);
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      margin: (-$gutter/4) 0;
+      padding: $gutter/4 0;
+      width: 100%;
+    }
+  }
+  .title {
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .body {
+    
+  }
+  .footer {
+    background: tint($base, 90%);
+    border-top: 1px solid tint($base, 80%);
+    bottom: 0;
+    left: $sidebar;
+    padding: 2*$gutter;
+    padding-top: $gutter;
+    position: fixed;
+    right: 0;
+  }
+}
+
+/* MODAL */
+
+#overlay,
+#modal {
+  display: none;
+}
+
+#overlay {
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+#modal {
+  background: #FFF;
+  border: 1px solid tint($base, 60%);
+  @include border-radius($radius);
+  bottom: 0;
+  height: $modal;
+  left: 0;
+  margin: auto;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: $modal;
+  .header {
+    border-bottom: 1px solid tint($base, 60%);
+    padding: $padding;
+    h2 {
+      font-size: $large;
+      margin: 0;
+    }
+  }
+  .body {
+    padding: $padding;
+  }
+}

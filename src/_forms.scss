@@ -1,0 +1,58 @@
+form {
+  margin: 0 0 $gutter;
+  padding: 0;
+}
+
+form .field {
+  @include clearfix();
+  padding: ($gutter/2) 0;
+}
+
+label {
+  margin-bottom: $gutter/4;
+}
+
+input[type=text],
+textarea {
+  color: tint($base, 20%);
+  font-family: $font;
+  font-size: $size;
+  line-height: $line-height;
+  outline: none;
+  padding: 1.5*$gutter/2 $gutter;
+}
+
+input[type=text],
+textarea {
+  background: #FFF;
+  border: 1px solid tint($base, 80%);
+  @include border-radius($radius);
+  @include box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px 1px inset);
+  padding: ($gutter/4) ($gutter/2);
+  &:active,
+  &:focus {
+    border-color: tint($blue, 40%);
+    outline: none;
+  }
+  &[disabled],
+  &[disabled=disabled],
+  &[readonly=true] {
+    background: transparent;
+  }
+}
+
+select {
+  border: 1px solid tint($base, 80%);
+  @include border-radius($radius);
+  @include box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px 1px inset);
+  &:active,
+  &:focus {
+    border-color: tint($blue, 40%);
+    outline: none;
+  }
+  &[disabled],
+  &[disabled=disabled],
+  &[readonly=true] {
+    background: transparent;
+  }
+}
