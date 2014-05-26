@@ -1,0 +1,34 @@
+{
+  "name": "eggshell",
+  "version": "0.1.0",
+  "description": "HTML & CSS boilerplate",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "node-bourbon": "^1.2.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-sass": "^0.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiredcraft/eggshell.git"
+  },
+  "keywords": [
+    "eggshell",
+    "sass",
+    "bourbon"
+  ],
+  "author": "Wiredcraft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/eggshell/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/eggshell"
+}
