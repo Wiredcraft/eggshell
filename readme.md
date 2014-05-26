@@ -22,6 +22,7 @@ If you need it in production, replace `--save-dev` with `--save`.
 
 Using the [gulp-sass](https://github.com/dlmanning/gulp-sass) plugin.
 
+```
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
@@ -34,6 +35,8 @@ gulp.task('sass', function () {
 })
 
 ```
+
+See more from the [example folder](https://github.com/Wiredcraft/eggshell/tree/master/example).
 
 ## License
 
