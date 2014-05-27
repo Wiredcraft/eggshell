@@ -1,7 +1,7 @@
 {
   "name": "eggshell",
-  "version": "0.1.0",
-  "description": "HTML & CSS boilerplate",
+  "version": "0.1.2",
+  "description": "SASS scaffolding",
   "main": "index.js",
   "directories": {
     "example": "example"
