@@ -1,7 +1,7 @@
 body {
   background: #FFF;
   color: tint($black, 25%);
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: $font;
   font-weight: normal;
   position: relative;
 }

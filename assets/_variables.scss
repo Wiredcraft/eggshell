@@ -16,18 +16,6 @@ $light: tint($black, 98%);
 $gutter: 20px;
 $radius: 2px;
 
-/* Layout */
-
-$login: 280px;
-$pick: 400px;
-$menu: 220px;
-$sidebar: 260px;
-$modal: 700px;
-$avatar: 22px;
-$command: 42px;
-$loading: 80px;
-$about: 280px;
-
 /* Sizes */
 
 $pico: 10;
@@ -38,3 +26,7 @@ $normal: 16;
 $large: 24;
 $huge: 32;
 $gigantic: 48;
+
+/* Font */
+
+$font: 'Open Sans', Arial, sans-serif;
