@@ -8,7 +8,7 @@
   }
   .options {
     background: #FFF;
-    border: 1px solid tint($black, 90%);
+    border: 1px solid $line;
     border-radius: $radius;
     box-shadow: rgba(0, 0, 0, 0.03) 0 1px 0 0;
     a {
@@ -28,7 +28,7 @@
       &:after {
         content: ' ';
         display: block;
-        border-top: 1px solid tint($black, 90%);
+        border-top: 1px solid $line;
         left: 0;
         position: absolute;
         top: -$gutter/4;

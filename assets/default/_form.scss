@@ -13,7 +13,7 @@
 }
 
 .field .description {
-  color: tint($black, 35%);
+  color: $grey;
   display: block;
   @include font-size($small);
   margin-top: $gutter/4;
