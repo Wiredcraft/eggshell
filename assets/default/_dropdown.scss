@@ -1,17 +1,22 @@
 .dropdown {
   @include dropdown(true);
-  a {
-    color: inherit;
+  > *:first-child {
+    cursor: pointer;
   }
-  a:hover {
-    text-decoration: none;
+  > a,
+  .options > a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
   }
   .options {
     background: #FFF;
     border: 1px solid $line;
     border-radius: $radius;
     box-shadow: rgba(0, 0, 0, 0.03) 0 1px 0 0;
-    a {
+    > .item,
+    > a {
       display: block;
       margin: $gutter/5 0;
       padding: $gutter/5 $gutter/2;

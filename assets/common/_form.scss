@@ -57,6 +57,7 @@ textarea,
 
 .select {
   cursor: pointer;
+  display: inline-block;
   & > select {
     @include appearance(none);
     background: #FFF;

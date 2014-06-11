@@ -52,6 +52,12 @@ ul {
   li {
     padding: 0 0 $gutter/2;
   }
+  ul {
+    margin-bottom: 0;
+    li {
+      padding: $gutter/2 0 0;
+    }
+  }
 }
 
 small {

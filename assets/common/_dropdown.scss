@@ -1,5 +1,4 @@
 @mixin dropdown($hover: false) {
-  cursor: pointer;
   display: inline-block;
   position: relative;
   .options {
