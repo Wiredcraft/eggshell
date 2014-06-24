@@ -66,7 +66,7 @@ label,
     pointer-events: none;
     position: absolute;
     right: $gutter/2;
-    top: 0;
+    top: $gutter/4;
     &:hover {
       color: inherit;
     }
