@@ -63,10 +63,11 @@ label,
     @include icon();
     content: '/';
     cursor: pointer;
+    line-height: inherit;
     pointer-events: none;
     position: absolute;
     right: $gutter/2;
-    top: $gutter/4;
+    top: 0;
     &:hover {
       color: inherit;
     }
