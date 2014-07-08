@@ -21,10 +21,10 @@
     @include icon();
     left: 50%;
     line-height: 1;
-    margin-left: -1.2rem;
-    margin-top: -1.2rem;
+    margin-left: -1.7rem;
+    margin-top: -1.7rem;
     opacity: 0.3;
-    padding: $gutter/4;
+    padding: 0.5rem;
     position: absolute;
     @include spin(1.2s);
     top: 50%;
