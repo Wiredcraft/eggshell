@@ -6,6 +6,7 @@ button {
 }
 
 .button,
+a.button,
 button.button {
   @include button();
   @include font-size($small);
