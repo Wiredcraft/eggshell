@@ -15,9 +15,11 @@
   &:focus {
     @if $clear == true {
       background: tint($color, 80%);
+      color: inherit;
     }
     @else {
       background: shade($color, 10%);
+      color: #FFF;
     }
     outline: none;
     text-decoration: none;
@@ -26,9 +28,11 @@
   &.active {
     @if $clear == true {
       background: shade($color, 5%);
+      color: inherit;
     }
     @else {
       background: tint($color, 10%);
+      color: #FFF;
     }
     text-decoration: none;
   }
