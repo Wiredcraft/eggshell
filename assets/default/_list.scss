@@ -61,21 +61,23 @@
     border: 1px solid $line;
     border-bottom-width: 0;
     padding: 0;
-    @include transition-property(border);
-    @include transition-duration(0.2s);
-    &:hover {
-      border-color: shade($line, 15%);
-      + .item {
-        border-top-color: shade($line, 15%);
-      }
-    }
-    &.active {
-      .body {
-        display: block;
-      }
-    }
     &.new {
       @include new(4s);
+    }
+    &.collapsible {
+      @include transition-property(border);
+      @include transition-duration(0.2s);
+      &:hover {
+        border-color: shade($line, 15%);
+        + .item {
+          border-top-color: shade($line, 15%);
+        }
+      }
+      &.active {
+        .body {
+          display: block;
+        }
+      }
     }
   }
   > .item:first-child,
