@@ -46,13 +46,15 @@ p {
   margin: 0 0 $gutter;
 }
 
-ul {
+ul,
+ol {
   margin: 0 0 $gutter/2 $gutter;
   padding: 0;
   li {
     padding: 0 0 $gutter/2;
   }
-  ul {
+  ul,
+  ol {
     margin-bottom: 0;
     li {
       padding: $gutter/2 0 0;
