@@ -2,7 +2,8 @@ var path = require('path');
 var bourbon = require('node-bourbon');
 
 function includePaths() {
-  return [bourbon.includePaths, path.join(__dirname, 'assets/')];
+  bourbon.includePaths.push(path.join(__dirname, 'assets'))
+  return bourbon.includePaths;
 }
 
 module.exports = {
