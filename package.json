@@ -1,6 +1,6 @@
 {
   "name": "eggshell",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "Bourbon scaffolding",
   "main": "index.js",
   "directories": {
