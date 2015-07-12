@@ -1,1 +1,100 @@
-@import "eggshell";
+@import 'eggshell';
+
+
+/* .button {
+  @include button;
+}
+
+.code {
+  @include code;
+}
+
+.dropdown {
+  @include dropdown;
+}
+
+.form {
+  @include form;
+}
+
+.list {
+  @include list;
+}
+
+.loading {
+  @include loading;
+} */
+
+.arrow {
+  @include arrow;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  margin: 40px;
+}
+
+.button2 {
+  @include button 
+}
+
+.icon-example {
+  @include icon;
+}
+.icon-example2 {
+  &:after {
+    @include icon;
+    content: 'v'
+  }
+}
+
+.pulse {
+  @include pulse(1s);
+}
+
+.spin {
+  @include spin(1s);
+}
+
+.tooltip {
+  @include tooltip(right);
+}
+
+.clearfix { 
+  margin: 40px;
+  @include clearfix;
+}
+
+.row {
+  display: block;
+  overflow: hidden;
+  margin-top: 30px;
+
+  h3 {
+    text-align: center;
+  }
+
+  &:after {
+    @include clearfix;
+    height: 1px;
+    margin-top: 40px;
+  }
+  .col-1-3 {
+    float: left;
+    width: 33%;
+  }
+}
+
+textarea {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  resize: vertical;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+.rendering {
+  border: 1px solid #eee;
+}

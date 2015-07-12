@@ -8,3 +8,9 @@ gulp.task('sass', function () {
     }))
     .pipe(gulp.dest('dist'));
 })
+
+
+// Watch Files For Changes & Reload
+gulp.task('watch', function () {
+  gulp.watch(['test.scss'], ['sass']);
+});
