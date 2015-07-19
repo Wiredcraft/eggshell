@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'icons';
-  src:url($icons + 'icons.eot');
+  src:url($icons + 'icons.eot'); /* Should use a variable !!? */
   src:url($icons + 'icons.eot?#iefix') format('embedded-opentype'),
     url($icons + 'icons.woff') format('woff'),
     url($icons + 'icons.ttf') format('truetype'),
@@ -10,7 +10,7 @@
 }
 
 @mixin icon {
-  font-family: 'icons';
+  font-family: 'icons'; 
   font-variant: normal;
   font-weight: normal;
   speak: none;
