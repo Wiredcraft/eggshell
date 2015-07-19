@@ -3,17 +3,12 @@
 <head>
   <title></title>
 </head>
-<link href="bower_components/prism/themes/prism.css" rel="stylesheet" />
-  <script src="bower_components/prism/prism.js"></script>
-
   <link rel="stylesheet" href="bower_components/CodeMirror/lib/codemirror.css">
   <script src="bower_components/CodeMirror/lib/codemirror.js"></script>
   <script src="bower_components/CodeMirror/mode/css/css.js"></script>
   <script src="bower_components/CodeMirror/mode/xml/xml.js"></script>
 <link rel="stylesheet" type="text/css" href="dist/test.css">
 <body class="modal">
-<!-- https://github.com/graphific/DeepDreamVideo -->
-
 
 <div class="row render">
   <h3>Code</h3>
@@ -106,7 +101,6 @@ This is an error notification
   <div class="col-1-3">
    <label>HTML</label>
    <textarea class="html">
-&lt;span class=&quot;pulse&quot;&gt;this text is pulse&lt;/span&gt;
 &lt;span class=&quot;pulse-mixin&quot;&gt;this text is pulse&lt;/span&gt;
    </textarea>
   </div>
@@ -129,7 +123,6 @@ This is an error notification
   <div class="col-1-3">
    <label>HTML</label>
    <textarea class="html">
-&lt;span class=&quot;spin&quot;&gt;this text is spinning&lt;/span&gt;
 &lt;span class=&quot;spin-mixin&quot;&gt;this text is spinning&lt;/span&gt;
    </textarea>
   </div>
@@ -324,10 +317,116 @@ This is an error notification
 
 
 
-
-
-
+<script src="/bower_components/sass.js/dist/sass.js"></script>
+<script src="/bower_components/sass.js"></script>
 <script id='js' type="text/javascript">
+  var sass = new Sass();
+
+  var base = '/dist/bourbon';
+  var directory = '';
+  var files = [
+      '_bourbon.scss',
+      'settings/_prefixer.scss',
+      'settings/_px-to-em.scss',
+      'helpers/_gradient-positions-parser.scss',
+      'helpers/_linear-positions-parser.scss',
+      'helpers/_radial-arg-parser.scss',
+      'helpers/_radial-positions-parser.scss',
+      'helpers/_render-gradients.scss',
+      'helpers/_shape-size-stripper.scss',
+      'functions/_color-lightness.scss',
+      'functions/_flex-grid.scss',
+      'functions/_golden-ratio.scss',
+      'functions/_grid-width.scss',
+      'functions/_linear-gradient.scss',
+      'functions/_modular-scale.scss',
+      'functions/_px-to-em.scss',
+      'functions/_px-to-rem.scss',
+      'functions/_radial-gradient.scss',
+      'functions/_strip-units.scss',
+      'functions/_tint-shade.scss',
+      'functions/_transition-property-name.scss',
+      'functions/_unpack.scss',
+      'css3/_animation.scss',
+      'css3/_appearance.scss',
+      'css3/_backface-visibility.scss',
+      'css3/_background.scss',
+      'css3/_background-image.scss',
+      'css3/_border-image.scss',
+      'css3/_border-radius.scss',
+      'css3/_box-sizing.scss',
+      'css3/_calc.scss',
+      'css3/_columns.scss',
+      'css3/_filter.scss',
+      'css3/_flex-box.scss',
+      'css3/_font-face.scss',
+      'css3/_font-feature-settings.scss',
+      'css3/_hyphens.scss',
+      'css3/_hidpi-media-query.scss',
+      'css3/_image-rendering.scss',
+      'css3/_inline-block.scss',
+      'css3/_keyframes.scss',
+      'css3/_linear-gradient.scss',
+      'css3/_perspective.scss',
+      'css3/_radial-gradient.scss',
+      'css3/_transform.scss',
+      'css3/_transition.scss',
+      'css3/_user-select.scss',
+      'css3/_placeholder.scss',
+      'addons/_button.scss',
+      'addons/_clearfix.scss',
+      'addons/_directional-values.scss',
+      'addons/_ellipsis.scss',
+      'addons/_font-family.scss',
+      'addons/_hide-text.scss',
+      'addons/_html5-input-types.scss',
+      'addons/_position.scss',
+      'addons/_prefixer.scss',
+      'addons/_retina-image.scss',
+      'addons/_size.scss',
+      'addons/_timing-functions.scss',
+      'addons/_triangle.scss',
+      'addons/_word-wrap.scss',
+      '_bourbon-deprecated-upcoming.scss',
+    ];
+  // download the files immediately
+  sass.preloadFiles(base, directory, files, function() { 
+    console.log('files loaded');
+
+    var base = '/dist/eggshell';
+    var directory = '';
+    var files = [
+      'eggshell.scss',
+      '_normalize.scss',
+      '_variables.scss',
+      'common/_arrow.scss',
+      'common/_font.scss',
+      'common/_button.scss',
+      'common/_tooltip.scss',
+      'common/_dropdown.scss',
+      'common/_icon.scss',
+      'common/_form.scss',
+      'common/_pulse.scss',
+      'common/_spin.scss',
+      'default/_general.scss',
+      'default/_buttons.scss',
+      'default/_code.scss',
+      'default/_dropdown.scss',
+      'default/_form.scss',
+      'default/_list.scss',
+      'default/_loading.scss',
+      'default/_notification.scss',
+      'default/_overlay.scss',
+      'default/_modal.scss',
+      'default/_table.scss',
+    ];
+    // download the files immediately
+    sass.preloadFiles(base, directory, files, function() { 
+      console.log('files loaded 2');
+    });
+  });
+
+
 
   var link = document.querySelectorAll('link')[0];
   link.onload = function() {
@@ -365,6 +464,7 @@ This is an error notification
     shadowRoot.appendChild(styleDest);
     shadowRoot.appendChild(rendering);
 
+    updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
     resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
 
     row.addEventListener('keyup', function() {
@@ -377,8 +477,20 @@ This is an error notification
     var style = root.querySelectorAll('style')[0];
     var html = root.querySelectorAll('div')[0];
 
-    style.textContent = "@import './dist/test.css';"  + styleSource.getValue();
-    html.innerHTML = htmlSource.getValue();
+      var scss = "@import \"eggshell\"; " + styleSource.getValue();
+      var compiled = sass.compile(scss, function(result) {
+        console.log(result);
+        if (result.status === 0) {
+          style.textContent = result.text;
+
+          html.innerHTML = htmlSource.getValue();
+          return;
+        } else {
+          return ''; // result.message;
+        }
+      });
+
+
   }
 
   function resizeInput(htmlRendering, htmlSource, styleSource) {
@@ -393,8 +505,14 @@ This is an error notification
   }
 /// 
 /// sass integration, error handling
+/// too slow? (too many file: compile in one file) (static)
+///
+/// or compile a version on node side
+///
+/// too 
 /// 
 </script>
+
 
 </body>
 </html>
