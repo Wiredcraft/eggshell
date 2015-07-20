@@ -435,11 +435,6 @@ This is an error notification
   var rows = document.querySelectorAll('div.row.render');
   [].forEach.call(rows, renderExample);
 
-  document.addEventListener('DOMContentLoaded', function() {
-    [].forEach.call(rows, renderExample);
-  });
-
-
   function renderExample(row) {
     var htmlSource = row.querySelectorAll('textarea.html')[0];
     var styleSource = row.querySelectorAll('textarea.css')[0];
@@ -471,6 +466,10 @@ This is an error notification
     updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
     resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
 
+    document.addEventListener('DOMContentLoaded', function() {
+      updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
+    });
+    
     row.addEventListener('keyup', function() {
       updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
       resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
