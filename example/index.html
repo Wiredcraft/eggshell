@@ -435,6 +435,11 @@ This is an error notification
   var rows = document.querySelectorAll('div.row.render');
   [].forEach.call(rows, renderExample);
 
+  document.addEventListener('DOMContentLoaded', function() {
+    [].forEach.call(rows, renderExample);
+  });
+
+
   function renderExample(row) {
     var htmlSource = row.querySelectorAll('textarea.html')[0];
     var styleSource = row.querySelectorAll('textarea.css')[0];
@@ -502,14 +507,7 @@ This is an error notification
     styleSource.setSize('100%;', maxHeight);
     htmlRendering.style.height = maxHeight + "px";
   }
-/// 
-/// sass integration, error handling
-/// too slow? (too many file: compile in one file) (static)
-///
-/// or compile a version on node side
-///
-/// too 
-/// 
+
 </script>
 
 
