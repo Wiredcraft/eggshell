@@ -422,6 +422,10 @@ This is an error notification
     // download the files immediately
     sass.preloadFiles(base, directory, files, function() { 
       console.log('files loaded 2');
+
+      examples.forEach(function (example) {
+        updateRendering(example.root, example.html, example.css);
+      });
     });
   });
 
@@ -432,10 +436,8 @@ This is an error notification
     console.log(link.sheet);
   };
   
-  var rows = document.querySelectorAll('div.row.render');
-  [].forEach.call(rows, renderExample);
-
-  function renderExample(row) {
+  var examples = [];
+  var renderExample = function(row) {
     var htmlSource = row.querySelectorAll('textarea.html')[0];
     var styleSource = row.querySelectorAll('textarea.css')[0];
 
@@ -463,18 +465,23 @@ This is an error notification
     shadowRoot.appendChild(styleDest);
     shadowRoot.appendChild(rendering);
 
+    examples.push({
+      root: shadowRoot,
+      html: CodeMirrorHTMLArea,
+      css: CodeMirrorCSSArea
+    });
+
     updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
     resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
-
-    document.addEventListener('DOMContentLoaded', function() {
-      updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
-    });
 
     row.addEventListener('keyup', function() {
       updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
       resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
     });
   }
+  var rows = document.querySelectorAll('div.row.render');
+  [].forEach.call(rows, renderExample);
+
 
   function updateRendering(root, htmlSource, styleSource) {
     var style = root.querySelectorAll('style')[0];
