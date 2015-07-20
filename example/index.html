@@ -469,7 +469,7 @@ This is an error notification
     document.addEventListener('DOMContentLoaded', function() {
       updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
     });
-    
+
     row.addEventListener('keyup', function() {
       updateRendering(shadowRoot, CodeMirrorHTMLArea, CodeMirrorCSSArea);
       resizeInput(root, CodeMirrorHTMLArea, CodeMirrorCSSArea);
@@ -480,18 +480,18 @@ This is an error notification
     var style = root.querySelectorAll('style')[0];
     var html = root.querySelectorAll('div')[0];
 
-      var scss = "@import \"eggshell\"; " + styleSource.getValue();
-      var compiled = sass.compile(scss, function(result) {
-        console.log(result);
-        if (result.status === 0) {
-          style.textContent = result.text;
+    var scss = "@import \"eggshell\"; " + styleSource.getValue();
+    var compiled = sass.compile(scss, function(result) {
+      console.log(result);
+      if (result.status === 0) {
+        style.textContent = result.text;
 
-          html.innerHTML = htmlSource.getValue();
-          return;
-        } else {
-          return ''; // result.message;
-        }
-      });
+        html.innerHTML = htmlSource.getValue();
+        return;
+      } else {
+        return ''; // result.message;
+      }
+    });
 
 
   }
